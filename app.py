@@ -34,61 +34,62 @@ def odata_service():
 
 @app.route('/odata/$metadata', methods=['GET'])
 def odata_metadata():
-    # A simple static metadata document (in a real scenario, this should be dynamically generated)
-    metadata = """
+    metadata = """<?xml version="1.0" encoding="utf-8"?>
     <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-  <edmx:DataServices>
-    <Schema Namespace="MyService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-      <EntityType Name="Person">
-        <Key>
-          <PropertyRef Name="id"/>
-        </Key>
-        <Property Name="address_line_1" Type="Edm.String" Nullable="true"/>
-        <Property Name="address_line_2" Type="Edm.String" Nullable="true"/>
-        <Property Name="bank_number" Type="Edm.String" Nullable="true"/>
-        <Property Name="bank_number_format" Type="Edm.String" Nullable="true"/>
-        <Property Name="birthday_on" Type="Edm.DateTimeOffset" Nullable="true"/>
-        <Property Name="city" Type="Edm.String" Nullable="true"/>
-        <Property Name="company_id" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="company_identifier" Type="Edm.String" Nullable="true"/>
-        <Property Name="contact_name" Type="Edm.String" Nullable="true"/>
-        <Property Name="contact_number" Type="Edm.String" Nullable="true"/>
-        <Property Name="country" Type="Edm.String" Nullable="true"/>
-        <Property Name="created_at" Type="Edm.DateTimeOffset" Nullable="false"/>
-        <Property Name="email" Type="Edm.String" Nullable="false"/>
-        <Property Name="first_name" Type="Edm.String" Nullable="false"/>
-        <Property Name="full_name" Type="Edm.String" Nullable="false"/>
-        <Property Name="gender" Type="Edm.String" Nullable="true"/>
-        <Property Name="id" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="identifier" Type="Edm.String" Nullable="true"/>
-        <Property Name="identifier_type" Type="Edm.String" Nullable="true"/>
-        <Property Name="last_name" Type="Edm.String" Nullable="false"/>
-        <Property Name="legal_entity_id" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="location_id" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="login_email" Type="Edm.String" Nullable="false"/>
-        <Property Name="manager_id" Type="Edm.Int32" Nullable="true"/>
-        <Property Name="nationality" Type="Edm.String" Nullable="true"/>
-        <Property Name="phone_number" Type="Edm.String" Nullable="true"/>
-        <Property Name="postal_code" Type="Edm.String" Nullable="true"/>
-        <Property Name="preferred_name" Type="Edm.String" Nullable="true"/>
-        <Property Name="social_security_number" Type="Edm.String" Nullable="true"/>
-        <Property Name="state" Type="Edm.String" Nullable="true"/>
-        <Property Name="swift_bic" Type="Edm.String" Nullable="true"/>
-        <Property Name="tax_id" Type="Edm.String" Nullable="true"/>
-        <Property Name="team_ids" Type="Collection(Edm.Int32)" Nullable="true"/>
-        <Property Name="terminated_on" Type="Edm.DateTimeOffset" Nullable="true"/>
-        <Property Name="termination_observations" Type="Edm.String" Nullable="true"/>
-        <Property Name="termination_reason" Type="Edm.String" Nullable="true"/>
-        <Property Name="termination_reason_type" Type="Edm.String" Nullable="true"/>
-        <Property Name="termination_type_description" Type="Edm.String" Nullable="true"/>
-        <Property Name="timeoff_manager_id" Type="Edm.Int32" Nullable="true"/>
-        <Property Name="timeoff_policy_id" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="updated_at" Type="Edm.DateTimeOffset" Nullable="false"/>
-      </EntityType>
-   
-
+      <edmx:DataServices>
+        <Schema Namespace="MyService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+          <EntityType Name="Person">
+            <Key>
+              <PropertyRef Name="id"/>
+            </Key>
+            <Property Name="address_line_1" Type="Edm.String" Nullable="true"/>
+            <Property Name="address_line_2" Type="Edm.String" Nullable="true"/>
+            <Property Name="bank_number" Type="Edm.String" Nullable="true"/>
+            <Property Name="bank_number_format" Type="Edm.String" Nullable="true"/>
+            <Property Name="birthday_on" Type="Edm.DateTimeOffset" Nullable="true"/>
+            <Property Name="city" Type="Edm.String" Nullable="true"/>
+            <Property Name="company_id" Type="Edm.Int32" Nullable="false"/>
+            <Property Name="company_identifier" Type="Edm.String" Nullable="true"/>
+            <Property Name="contact_name" Type="Edm.String" Nullable="true"/>
+            <Property Name="contact_number" Type="Edm.String" Nullable="true"/>
+            <Property Name="country" Type="Edm.String" Nullable="true"/>
+            <Property Name="created_at" Type="Edm.DateTimeOffset" Nullable="false"/>
+            <Property Name="email" Type="Edm.String" Nullable="false"/>
+            <Property Name="first_name" Type="Edm.String" Nullable="false"/>
+            <Property Name="full_name" Type="Edm.String" Nullable="false"/>
+            <Property Name="gender" Type="Edm.String" Nullable="true"/>
+            <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+            <Property Name="identifier" Type="Edm.String" Nullable="true"/>
+            <Property Name="identifier_type" Type="Edm.String" Nullable="true"/>
+            <Property Name="last_name" Type="Edm.String" Nullable="false"/>
+            <Property Name="legal_entity_id" Type="Edm.Int32" Nullable="false"/>
+            <Property Name="location_id" Type="Edm.Int32" Nullable="false"/>
+            <Property Name="login_email" Type="Edm.String" Nullable="false"/>
+            <Property Name="manager_id" Type="Edm.Int32" Nullable="true"/>
+            <Property Name="nationality" Type="Edm.String" Nullable="true"/>
+            <Property Name="phone_number" Type="Edm.String" Nullable="true"/>
+            <Property Name="postal_code" Type="Edm.String" Nullable="true"/>
+            <Property Name="preferred_name" Type="Edm.String" Nullable="true"/>
+            <Property Name="social_security_number" Type="Edm.String" Nullable="true"/>
+            <Property Name="state" Type="Edm.String" Nullable="true"/>
+            <Property Name="swift_bic" Type="Edm.String" Nullable="true"/>
+            <Property Name="tax_id" Type="Edm.String" Nullable="true"/>
+            <Property Name="team_ids" Type="Collection(Edm.Int32)" Nullable="true"/>
+            <Property Name="terminated_on" Type="Edm.DateTimeOffset" Nullable="true"/>
+            <Property Name="termination_observations" Type="Edm.String" Nullable="true"/>
+            <Property Name="termination_reason" Type="Edm.String" Nullable="true"/>
+            <Property Name="termination_reason_type" Type="Edm.String" Nullable="true"/>
+            <Property Name="termination_type_description" Type="Edm.String" Nullable="true"/>
+            <Property Name="timeoff_manager_id" Type="Edm.Int32" Nullable="true"/>
+            <Property Name="timeoff_policy_id" Type="Edm.Int32" Nullable="false"/>
+            <Property Name="updated_at" Type="Edm.DateTimeOffset" Nullable="false"/>
+          </EntityType>
+        </Schema>
+      </edmx:DataServices>
+    </edmx:Edmx>
     """
     return metadata, 200, {'Content-Type': 'application/xml'}
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
